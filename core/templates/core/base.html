@@ -1,0 +1,26 @@
+<!-- core/templates/core/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Django Docker{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
+
+<!-- core/templates/core/home.html -->
+{% extends 'core/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome</h1>
+    {% for item in items %}
+        <div>
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
