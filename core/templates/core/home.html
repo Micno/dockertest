@@ -3,8 +3,54 @@
 
 {% block title %}Home{% endblock %}
 
+
 {% block content %}
-    <h1>Welcome</h1>
+<div class="container">
+    <h1>Willkommen beim Django Docker Projekt</h1>
+    
+    <div class="quick-links">
+        <h2>Schnellzugriff</h2>
+        <ul>
+            <li>
+                {# Verwendung des URL-Template-Tags mit dem Namen aus urls.py #}
+                <a href="{% url 'core:setup_guide' %}" class="setup-guide-link">
+                    📚 Team Setup Guide
+                </a>
+            </li>
+            {# Hier können weitere Links folgen #}
+        </ul>
+    </div>
+
+    <style>
+        .quick-links {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #2f3136;
+            border-radius: 8px;
+        }
+        
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .setup-guide-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #7289da;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            transition: background-color 0.2s;
+        }
+        
+        .setup-guide-link:hover {
+            background-color: #5a69a5;
+            text-decoration: none;
+        }
+    </style>
+</div>
     {% for item in items %}
         <div>
             <h2>{{ item.title }}</h2>
@@ -12,3 +58,4 @@
         </div>
     {% endfor %}
 {% endblock %}
+

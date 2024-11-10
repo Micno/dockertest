@@ -1,0 +1,228 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}😎 Team Setup Guide{% endblock %}
+
+{% block extra_head %}
+<style>
+html.theme-dark {
+    background-color: #202020;
+}
+body {
+    background-color: #202020;
+    color: #dcddde;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+pre, code {
+    background-color: #2f3136;
+    border: 1px solid #424242;
+    border-radius: 4px;
+    padding: 0.2em 0.4em;
+    font-family: 'Consolas', 'Monaco', monospace;
+    color: #dcddde;
+}
+pre code {
+    border: none;
+    padding: 0;
+}
+pre {
+    padding: 1em;
+    overflow-x: auto;
+    background-color: #2f3136;
+}
+blockquote {
+    border-left: 4px solid #424242;
+    margin: 1em 0;
+    padding-left: 1em;
+    color: #999;
+}
+a {
+    color: #7aa2f7;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #424242;
+    padding: 6px 13px;
+}
+thead {
+    background-color: #2f3136;
+}
+tr:nth-child(2n) {
+    background-color: #2f3136;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #dcddde;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+ul, ol {
+    padding-left: 2em;
+}
+li {
+    margin: 0.5em 0;
+}
+hr {
+    border: none;
+    border-top: 1px solid #424242;
+    margin: 2em 0;
+}
+
+.sourceCode .kw { color: #ff7b72; }
+.sourceCode .dt { color: #79c0ff; }
+.sourceCode .st { color: #a5d6ff; }
+.sourceCode .co { color: #8b949e; }
+.sourceCode .op { color: #d2a8ff; }
+.sourceCode .dv { color: #79c0ff; }
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+::selection {
+    background-color: #3f4147;
+    color: #dcddde;
+}
+code::selection {
+    background-color: #4a4d52;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 id="team-setup-guide-django-docker-projekt">Team Setup Guide: Django Docker Projekt</h1>
+
+<h2 id="einmalige-system-einrichtung">1. Einmalige System-Einrichtung</h2>
+<h3 id="software-installieren">Software installieren</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ software_installation|safe }}</code></pre>
+</div>
+
+<h3 id="docker-berechtigungen-einrichten">Docker-Berechtigungen einrichten</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ docker_permissions|safe }}</code></pre>
+</div>
+
+<p class="warning">⚠️ <strong>WICHTIG</strong>: Nach diesen Befehlen MUSST du dich komplett vom System abmelden und wieder anmelden!</p>
+
+<h3 id="vscode-extensions-installieren">VSCode Extensions installieren</h3>
+<ol>
+    <li>VSCode öffnen</li>
+    <li>Diese Extensions installieren:
+        <ul>
+            <li>Python</li>
+            <li>Docker</li>
+            <li>Django</li>
+            <li>GitLens</li>
+        </ul>
+    </li>
+</ol>
+
+<h2 id="projekt-klonen-und-einrichten">2. Projekt klonen und einrichten</h2>
+<h3 id="repository-klonen">Repository klonen</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ git_clone|safe }}</code></pre>
+</div>
+
+<h3 id="projekt-starten">Projekt starten</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ project_start|safe }}</code></pre>
+</div>
+
+<p>Die Seite sollte jetzt unter <a href="http://localhost:8000">http://localhost:8000</a> erreichbar sein.</p>
+
+<h2 id="häufige-entwicklungsbefehle">3. Häufige Entwicklungsbefehle</h2>
+<h3 id="docker-befehle">Docker-Befehle</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ docker_commands|safe }}</code></pre>
+</div>
+
+<h3 id="django-management-befehle">Django-Management Befehle</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ django_commands|safe }}</code></pre>
+</div>
+
+<h2 id="git-workflow">4. Git Workflow</h2>
+<h3 id="täglicher-entwicklungs-workflow">Täglicher Entwicklungs-Workflow</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ git_workflow|safe }}</code></pre>
+</div>
+
+<h2 id="troubleshooting">5. Troubleshooting</h2>
+<h3 id="problem-docker-berechtigungsfehler">Problem: Docker-Berechtigungsfehler</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ docker_troubleshooting|safe }}</code></pre>
+</div>
+
+<h3 id="problem-container-startet-nicht">Problem: Container startet nicht</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ container_troubleshooting|safe }}</code></pre>
+</div>
+
+<h3 id="problem-migrations-fehler">Problem: Migrations-Fehler</h3>
+<div class="sourceCode">
+    <pre class="sourceCode bash"><code class="sourceCode bash">{{ migration_troubleshooting|safe }}</code></pre>
+</div>
+
+<h2 id="best-practices">6. Best Practices</h2>
+<ol>
+    <li>
+        <p><strong>Vor Arbeitsbeginn</strong>:</p>
+        <div class="sourceCode">
+            <pre class="sourceCode bash"><code class="sourceCode bash">{{ before_work|safe }}</code></pre>
+        </div>
+    </li>
+    <li>
+        <p><strong>Während der Entwicklung</strong>:</p>
+        <ul>
+            <li>Regelmäßig committen</li>
+            <li>Aussagekräftige Commit-Messages schreiben</li>
+            <li>Branch-Namen beschreibend wählen</li>
+        </ul>
+    </li>
+    <li>
+        <p><strong>Code-Qualität</strong>:</p>
+        <ul>
+            <li>Tests schreiben</li>
+            <li>PEP8 Standards befolgen</li>
+            <li>Kommentare für komplexe Logik hinzufügen</li>
+        </ul>
+    </li>
+</ol>
+
+<h2 id="projekt-struktur">7. Projekt-Struktur</h2>
+<pre><code>{{ project_structure|safe }}</code></pre>
+
+<h2 id="hilfe-support">8. Hilfe & Support</h2>
+<p>Bei Problemen:</p>
+<ol>
+    <li>Logs überprüfen: <code>docker-compose logs</code></li>
+    <li>Git-Status prüfen: <code>git status</code></li>
+    <li>Docker-Status prüfen: <code>docker ps</code></li>
+    <li>Team-Mitglieder fragen</li>
+    <li>Issue im Repository erstellen</li>
+</ol>
+{% endblock %}
